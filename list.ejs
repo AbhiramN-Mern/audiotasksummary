@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Task Summary</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 400px;
+            margin: 30px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        h3 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #343a40;
+        }
+        .form-check {
+            padding: 8px;
+        }
+        #createReport {
+            width: 100%;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h3>Batch Members</h3>
+        <div class="row">
+            <div class="col-12">
+                <form id="membersForm">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="Sheik" name="member" id="member1">
+                        <label class="form-check-label" for="member1">Sheik</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="Akash" name="member" id="member2">
+                        <label class="form-check-label" for="member2">Akash</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="Abhishek" name="member" id="member3">
+                        <label class="form-check-label" for="member3">Abhishek</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="Amruth" name="member" id="member4">
+                        <label class="form-check-label" for="member4">Amruth</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="Ajnas" name="member" id="member5">
+                        <label class="form-check-label" for="member5">Ajnas</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="Jobhish" name="member" id="member6">
+                        <label class="form-check-label" for="member6">Jobhish</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="Archana" name="member" id="member7">
+                        <label class="form-check-label" for="member7">Archana</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="Irthah" name="member" id="member8">
+                        <label class="form-check-label" for="member8">Irthah</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="Ashique" name="member" id="member9">
+                        <label class="form-check-label" for="member9">Ashique</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="Lena" name="member" id="member10">
+                        <label class="form-check-label" for="member10">Lena</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="Anees" name="member" id="member11">
+                        <label class="form-check-label" for="member11">Anees</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="Aswin" name="member" id="member12">
+                        <label class="form-check-label" for="member12">Aswin</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="Midlaj" name="member" id="member13">
+                        <label class="form-check-label" for="member13">Midlaj</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="Chithira" name="member" id="member14">
+                        <label class="form-check-label" for="member14">Chithira</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="Faique" name="member" id="member15">
+                        <label class="form-check-label" for="member15">Faique</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="Aseem" name="member" id="member16">
+                        <label class="form-check-label" for="member16">Aseem</label>
+                    </div>
+                </form>
+                <button id="createReport" class="btn btn-primary">Create Report</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('createReport').addEventListener('click', () => {
+            const doneMembers = [];
+            const notDoneMembers = [];
+
+            const checkboxes = document.querySelectorAll("input[type='checkbox']");
+
+            checkboxes.forEach(checkbox => {
+                if (checkbox.checked) {
+                    doneMembers.push(checkbox.value);
+                } else {
+                    notDoneMembers.push(checkbox.value);
+                }
+            });
+
+            window.location.href = `/summary?doneMembers=${doneMembers.join(",")}&notDoneMembers=${notDoneMembers.join(",")}`;
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summary</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 400px;
+            margin: 30px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        h3 {
+            text-align: center;
+            color: #343a40;
+        }
+        .divider {
+            border-top: 2px solid #ddd;
+            margin: 15px 0;
+        }
+        .status-list {
+            padding-left: 0;
+            list-style: none;
+        }
+        .status-list li {
+            padding: 5px 0;
+            font-size: 16px;
+        }
+        .check-mark {
+            color: green;
+            font-weight: bold;
+        }
+        .cross-mark {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h3><b>Daily Task Report </b></h3>
+        <p>------------------------------</p>
+        <p>Batch: BCK221 A</p>
+        <p>Day: <%= new Date().toLocaleString('en-US', {weekday:'long'}) %></p>
+        <p>Date: <%= new Date().toLocaleDateString() %></p>
+        <p>------------------------------</p>
+        <div class="divider"></div>
+
+        <h5>Submitted:</h5>
+        <ul class="status-list">
+            <% for(let i = 0; i < doneMembers.length; i++) { %>
+                <li class="check-mark">✅ <%= doneMembers[i] %></li>
+            <% } %>
+        </ul>
+
+        <% if(notDoneMembers.length > 0) { %>
+        <div class="divider"></div>
+        <p>&nbsp;</p>
+        <h5>Not Submitted:</h5>
+        <ul class="status-list">
+            <% for(let i = 0; i < notDoneMembers.length; i++) { %>
+                <li class="cross-mark">❌ <%= notDoneMembers[i] %></li>
+            <% } %>
+        </ul>
+        <% } %>
+        <p>&nbsp;</p>
+        <div class="divider"></div>
+        <p class="text-center text-muted">Consistency leads to success. Great job to those who submitted, keep the momentum going! 🎯</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
